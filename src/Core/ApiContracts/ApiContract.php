@@ -36,40 +36,40 @@ interface ApiContract
     public function getMethod():string;
 
     /**
-     * Get all params key list
-     * @return string[]
+     * Get params
+     * @return ApiParamCollectContract|null
      */
-    public function getParamsKeyList():array;
+    public function getParams():?ApiParamCollectContract;
 
     /**
-     * Get params by key
      * @param $key
-     * @return ApiParamContract
+     * @return ApiParamCollectContract|null
      */
-    public function getParams($key):ApiParamContract;
+    public function getParam($key):?ApiParamCollectContract;
+
 
     /**
-     * @return ApiParamContract[]
+     * @return ApiParamCollectContract|null
      */
-    public function getBody():array;
+    public function getBody():?ApiParamCollectContract;
 
     /**
      * Get all headers
-     * @return ApiParamContract[]
+     * @return ApiParamCollectContract|null
      */
-    public function getHeaders():array;
+    public function getHeaders():?ApiParamCollectContract;
 
     /**
      * Get Response Object
-     * @return ApiResponseContract
+     * @return ApiResponseContract|null
      */
-    public function getResponse():ApiResponseContract;
+    public function getResponse():?ApiResponseContract;
 
     /**
      * Get api desc
-     * @return ApiDoc
+     * @return ApiDoc|null
      */
-    public function getDesc():ApiDoc;
+    public function getDesc():?ApiDoc;
 
 
 }

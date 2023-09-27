@@ -11,7 +11,7 @@ namespace ApiDocLaravelFast\Core\ApiContracts;
  * @property ApiDoc $responseDesc
  * @property array $responseData
  */
-interface ApiResponseContract
+interface ApiResponseContract extends ApiParamCollectContract
 {
     /**
      * Get response type
