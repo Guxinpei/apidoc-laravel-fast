@@ -5,7 +5,6 @@ namespace ApiDocLaravelFast\Core\Api;
 use ApiDocLaravelFast\Core\ApiContracts\ApiContract;
 use ApiDocLaravelFast\Core\ApiContracts\ApiDoc;
 use ApiDocLaravelFast\Core\ApiContracts\ApiParamCollectContract;
-use ApiDocLaravelFast\Core\ApiContracts\ApiParamContract;
 use ApiDocLaravelFast\Core\ApiContracts\ApiResponseContract;
 
 abstract Class Api implements ApiContract
