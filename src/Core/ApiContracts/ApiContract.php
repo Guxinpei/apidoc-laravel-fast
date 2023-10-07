@@ -2,15 +2,11 @@
 namespace ApiDocLaravelFast\Core\ApiContracts;
 
 
+use Illuminate\Support\Collection;
+
 /**
  * Interface ApiContract
  * @package ApiDocLaravelFast\Core\ApiContracts
- * @property string $uri
- * @property string $method
- * @property array $params
- * @property array $body
- * @property ApiResponseContract $response
- * @property ApiDoc $desc
  */
 interface ApiContract
 {
@@ -43,9 +39,9 @@ interface ApiContract
 
     /**
      * @param $key
-     * @return ApiParamCollectContract|null
+     * @return ApiParamContract|null
      */
-    public function getParam($key):?ApiParamCollectContract;
+    public function getParam($key):?ApiParamContract;
 
 
     /**
@@ -60,10 +56,18 @@ interface ApiContract
     public function getHeaders():?ApiParamCollectContract;
 
     /**
-     * Get Response Object
+     * Get a response object by name
+     * @param $name
      * @return ApiResponseContract|null
      */
-    public function getResponse():?ApiResponseContract;
+    public function getResponse($name):?ApiResponseContract;
+
+    /**
+     * Get all responses
+     * @return ApiResponseCollectionContract|null
+     */
+    public function getResponses():?ApiResponseCollectionContract;
+
 
     /**
      * Get api desc

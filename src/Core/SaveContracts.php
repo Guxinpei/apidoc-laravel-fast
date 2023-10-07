@@ -16,7 +16,7 @@ interface SaveContracts
      * @param ApiContract $api
      * @return SaveContracts
      */
-    public function setApi(ApiContract $api):self;
+    public function from(ApiContract $api):self;
 
     /**
      * @return bool

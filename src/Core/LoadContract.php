@@ -18,7 +18,7 @@ interface LoadContract
      * @param mixed $data source data,can be any type of SaveContract saved
      * @return self
      */
-    public function sourceFrom(mixed $data):self;
+    public function from(mixed $data):self;
 
     /**
      * @return ApiContract

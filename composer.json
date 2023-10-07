@@ -4,7 +4,8 @@
     "license": "WTFPL",
     "autoload": {
         "psr-4": {
-            "ApiDocLaravelFast\\": "src/"
+            "ApiDocLaravelFast\\": "src/",
+            "ApiDocLaravelFast\\Tests\\": "tests/"
         }
     },
     "authors": [

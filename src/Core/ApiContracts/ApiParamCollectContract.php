@@ -9,7 +9,7 @@ interface ApiParamCollectContract
      */
     public function getParams():array;
 
-    public function setParam(ApiParamContract $apiParamContract):self;
+    public function addParam(ApiParamContract $apiParamContract):self;
 
     public function getParam(string $key):ApiParamContract;
 

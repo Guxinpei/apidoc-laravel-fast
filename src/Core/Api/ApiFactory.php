@@ -1,21 +1,23 @@
 <?php
+namespace ApiDocLaravelFast\Core\Api;
 
 use ApiDocLaravelFast\Core\ApiContracts\ApiContract;
 use ApiDocLaravelFast\Core\ApiContracts\ApiDoc;
 use ApiDocLaravelFast\Core\ApiContracts\ApiParamCollectContract;
-use ApiDocLaravelFast\Core\ApiContracts\ApiResponseContract;
+use ApiDocLaravelFast\Core\ApiContracts\ApiResponseCollectionContract;
 
-abstract Class ApiBuilder  {
+Class ApiFactory  {
 
     protected ?ApiParamCollectContract $params = null;
     protected ?ApiParamCollectContract $body = null;
     protected ?ApiParamCollectContract $headers = null;
     protected ?ApiDoc $desc = null;
+    private ?ApiResponseCollectionContract $response = null;
 
     public function __construct (
-        public string $menu,
-        public string $uri,
-        public string $method,
+        public string $menu='',
+        public string $uri='',
+        public string $method='',
     )
     {
 
@@ -58,7 +60,7 @@ abstract Class ApiBuilder  {
         return $this;
     }
 
-    public function setResponse(ApiResponseContract $response):self
+    public function setResponse(ApiResponseCollectionContract $response):self
     {
         $this->response = $response;
         return $this;

@@ -14,6 +14,13 @@ namespace ApiDocLaravelFast\Core\ApiContracts;
 interface ApiResponseContract extends ApiParamCollectContract
 {
     /**
+     * Get response name
+     * like success\error\not found
+     * just description name
+     * @return string
+     */
+    public function getResponseName():string;
+    /**
      * Get response type
      * like json,xml,jpg
      * @return string

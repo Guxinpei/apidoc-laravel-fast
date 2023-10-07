@@ -10,7 +10,7 @@ interface DisplayContract
      * @param ApiContract $api
      * @return void
      */
-    public function setApi(ApiContract $api):void;
+    public function from(ApiContract $api):void;
 
     /**
      * @return bool
