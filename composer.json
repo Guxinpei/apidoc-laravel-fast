@@ -28,6 +28,10 @@
         "mockery/mockery": ">=0.9.9",
         "phpunit/phpunit": "^10.0"
     },
+    "scripts":{
+        "test":["phpunit"],
+        "test:coverage":["XDEBUG_MODE=coverage ./vendor/bin/phpunit --coverage-html ./test-coverage-result"]
+    },
     "prefer-stable": true,
     "minimum-stability": "dev"
 }

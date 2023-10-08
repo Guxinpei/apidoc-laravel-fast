@@ -6,8 +6,8 @@ class ApiDoc implements \ApiDocLaravelFast\Core\ApiContracts\ApiDoc
 {
 
     public function __construct(
-        protected string $type = 'string',
-        protected string $content = ''
+        public string $type = 'string',
+        public string $content = ''
     )
     {
 

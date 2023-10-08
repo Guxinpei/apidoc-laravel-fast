@@ -1,6 +1,7 @@
 <?php
-namespace ApiDocLaravelFast\Core\Api;
+namespace ApiDocLaravelFast\Core\Factory;
 
+use ApiDocLaravelFast\Core\Api\Api;
 use ApiDocLaravelFast\Core\ApiContracts\ApiContract;
 use ApiDocLaravelFast\Core\ApiContracts\ApiDoc;
 use ApiDocLaravelFast\Core\ApiContracts\ApiParamCollectContract;

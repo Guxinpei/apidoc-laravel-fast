@@ -32,7 +32,11 @@ class ApiParamTest extends TestCase
      * @covers \ApiDocLaravelFast\Core\Api\ApiParam::getParamName
      * @covers \ApiDocLaravelFast\Core\Api\ApiParam::getParamDesc
      * @covers \ApiDocLaravelFast\Core\Api\ApiParam::getDefaultValue
+     * @covers \ApiDocLaravelFast\Core\Api\ApiParam::getApiDoc
+     * @covers \ApiDocLaravelFast\Core\Api\ApiParam::getName
+     * @covers \ApiDocLaravelFast\Core\Api\ApiParam::getType
      * @covers \ApiDocLaravelFast\Core\Api\ApiParam::isNullable
+     * @covers \ApiDocLaravelFast\Core\Api\ApiParam::setApiDoc
      * @covers \ApiDocLaravelFast\Core\Api\ApiParam::setParamType
      * @covers \ApiDocLaravelFast\Core\Api\ApiParam::setParamName
      * @covers \ApiDocLaravelFast\Core\Api\ApiParam::setParamDesc
@@ -55,10 +59,15 @@ class ApiParamTest extends TestCase
         $apiParam->setDefaultValue('default');
         $apiParam->setNullable(false);
         $apiParam->setParamDesc($apiDoc);
+        $apiParam->setApiDoc($apiDoc);
         $this->assertEquals('name', $apiParam->getParamName());
+        $this->assertEquals('name', $apiParam->getName());
+        $this->assertEquals('string', $apiParam->getType());
         $this->assertEquals('string', $apiParam->getParamType());
         $this->assertEquals('default', $apiParam->getDefaultValue());
         $this->assertFalse($apiParam->isNullable());
         $this->assertEquals($apiDoc, $apiParam->getParamDesc());
+        $this->assertEquals($apiDoc, $apiParam->getApiDoc());
+
     }
 }

@@ -8,6 +8,7 @@ use ApiDocLaravelFast\Core\Api\ApiParam;
 use ApiDocLaravelFast\Core\Api\ApiParamCollect;
 use ApiDocLaravelFast\Core\Api\ApiResponse;
 use ApiDocLaravelFast\Core\Api\ApiResponseCollection;
+use ApiDocLaravelFast\Core\ApiContracts\ApiParamCollectContract;
 use PHPUnit\Framework\TestCase;
 
 class ApiTest extends TestCase
@@ -85,6 +86,24 @@ class ApiTest extends TestCase
         $api->setDesc((new ApiDoc())->setContent('desc')->setType('string'));
         $this->assertInstanceOf(ApiDoc::class, $api->getDesc());
         $this->assertEquals('desc', $api->getDesc()->getContent());
+    }
+
+    public function testBody():void
+    {
+        $api = new Api(body: null);
+        $this->assertNull($api->getBody());
+        $apiParam = (new ApiParamCollect())->addParam((new ApiParam())->setParamName('body')->setDefaultValue('body'));
+        $api->setBody($apiParam);
+        $this->assertInstanceOf(ApiParamCollectContract::class, $api->getBody());
+        $this->assertEquals('body', $api->getBody()->getParam('body')->getDefaultValue());
+    }
+
+    public function testMenu():void
+    {
+        $api = new Api(menu: 'menu');
+        $this->assertEquals('menu', $api->getMenu());
+        $api->setMenu('menu2');
+        $this->assertEquals('menu2', $api->menu());
     }
 
 }
