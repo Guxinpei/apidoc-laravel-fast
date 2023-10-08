@@ -3,8 +3,11 @@
 namespace ApiDocLaravelFast\Tests\Core;
 
 use ApiDocLaravelFast\Core\Api\Api;
+use ApiDocLaravelFast\Core\Api\ApiDoc;
 use ApiDocLaravelFast\Core\Api\ApiParam;
 use ApiDocLaravelFast\Core\Api\ApiParamCollect;
+use ApiDocLaravelFast\Core\Api\ApiResponse;
+use ApiDocLaravelFast\Core\Api\ApiResponseCollection;
 use PHPUnit\Framework\TestCase;
 
 class ApiTest extends TestCase
@@ -61,5 +64,27 @@ class ApiTest extends TestCase
         $this->assertEquals('header-default', $api->getHeader('header-name')->getDefaultValue());
     }
 
+    public function testResponse():void
+    {
+        $api = new Api(responses: null);
+        $this->assertNull($api->getResponses());
+        $response = new ApiResponse();
+        $response->setResponseName('response-name');
+        $response->setResponseDesc((new ApiDoc())->setContent('response-desc')->setType('string'));
+        $responseCollect = new ApiResponseCollection();
+        $responseCollect->addResponse($response);
+        $api->setResponse($responseCollect);
+        $this->assertInstanceOf(ApiResponseCollection::class, $api->getResponses());
+        $this->assertEquals('response-desc', $api->getResponse('response-name')->getResponseDesc()->getContent());
+    }
+
+    public function testDesc():void
+    {
+        $api = new Api(desc: null);
+        $this->assertNull($api->getDesc());
+        $api->setDesc((new ApiDoc())->setContent('desc')->setType('string'));
+        $this->assertInstanceOf(ApiDoc::class, $api->getDesc());
+        $this->assertEquals('desc', $api->getDesc()->getContent());
+    }
 
 }

@@ -80,7 +80,7 @@ Class Api implements ApiContract
 
     public function getResponse($name):?ApiResponseContract
     {
-        return $this->response->getResponse($name);
+        return $this->responses->getResponse($name);
     }
 
     public function getDesc(): ?ApiDoc

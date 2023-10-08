@@ -14,15 +14,12 @@ class ApiResponse extends ApiParamCollect implements ApiResponseContract
      * @param string $responseType
      * @param int $responseCode
      * @param ApiDoc $responseDesc
-     * @param Collection|null $params
      */
     public function __construct(
         public string $responseName = '',
         public string $responseType = '',
         public int $responseCode = 200,
         public ?ApiDoc $responseDesc = null,
-        public ?Collection  $params = null,
-
     )
     {
        parent::__construct();
